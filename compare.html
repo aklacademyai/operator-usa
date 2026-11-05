@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparison vs Imported Systems — OPERATOR · Smart Barn Automation</title>
+<meta name="description" content="OPERATOR vs DeBoer, SKOV, Siemens: recovery, diagnostics, open API, built-in barn algorithms.">
+<style>
+:root{--dark:#101c16;--dark2:#18281f;--cream:#f7f5ef;--ink:#1c201d;--green:#2e7d46;
+--greenl:#78be8c;--gold:#c9973f;--grey:#6e746e;--line:#e0ddd2}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55}
+a{color:var(--green);text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{background:var(--dark);position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;gap:26px;padding:14px 0;flex-wrap:wrap}
+.logo{color:#fff;font-weight:800;font-size:21px;letter-spacing:.5px}
+.logo span{color:var(--greenl)}
+nav.links{display:flex;gap:18px;flex-wrap:wrap;margin-left:auto}
+nav.links a{color:#dfe7df;font-size:14.5px}
+nav.links a:hover{color:var(--greenl)}
+.cta-btn{background:var(--green);color:#fff!important;padding:8px 16px;border-radius:8px;font-weight:600}
+.hero{background:var(--dark);color:#fff;padding:64px 0 56px;border-left:7px solid var(--green)}
+.kicker{color:var(--green);font-weight:700;font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase}
+.hero .kicker{color:var(--greenl)}
+h1{font-size:42px;line-height:1.15;margin:12px 0 14px}
+h2{font-size:29px;margin:10px 0 12px;line-height:1.25}
+h3{font-size:18px;margin-bottom:6px}
+.lead{font-size:17.5px;color:#454b45;max-width:760px}
+.hero .lead{color:#e2e8e2}
+section{padding:46px 0}
+.alt{background:#fff}
+.dark{background:var(--dark);color:#fff}
+.dark .lead{color:#cfd8cf}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px;margin-top:26px}
+.stat .big{font-size:31px;font-weight:800;color:var(--green)}
+.dark .stat .big{color:#fff}
+.stat .small{color:var(--grey);font-size:13.5px;margin-top:4px}
+.dark .stat .small{color:var(--greenl)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
+.card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:20px}
+.dark .card{background:var(--dark2);border-color:#26392d;border-left-color:var(--green)}
+.card p{font-size:14.5px;color:#454b45}
+.dark .card p{color:#cfd8cf}
+.bar-row{margin:20px 0}
+.bar-track{background:#e7e4d8;height:16px;border-radius:8px;overflow:hidden}
+.dark .bar-track{background:#34423a}
+.bar-fill{height:100%}
+table{border-collapse:collapse;width:100%;margin-top:18px;background:#fff}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;font-size:14.5px;vertical-align:top}
+th{background:var(--dark);color:#fff}
+ul.tick{list-style:none;margin-top:14px}
+ul.tick li{padding:7px 0 7px 26px;position:relative;font-size:16px}
+ul.tick li:before{content:"";position:absolute;left:2px;top:14px;width:9px;height:9px;border-radius:50%;background:var(--green)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:24px}
+.step{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px}
+.step .n{font-size:26px;font-weight:800;color:var(--green)}
+.btn{display:inline-block;background:var(--green);color:#fff;padding:13px 26px;border-radius:9px;font-weight:700;font-size:16px;margin-top:18px}
+.btn.gold{background:var(--gold)}
+footer{background:var(--dark);color:#cfd8cf;padding:34px 0;font-size:14px}
+footer b{color:#fff}
+.note{font-size:12px;color:var(--grey);margin-top:14px}
+@media(max-width:640px){h1{font-size:31px}h2{font-size:24px}}
+</style></head>
+<body>
+<header><div class="wrap nav">
+<a class="logo" href="index.html">OPERATOR <span>USA</span></a>
+<nav class="links"><a href="index.html">Platform</a><a href="plc.html">PLC Operator 27</a><a href="scrapers.html">Scrapers</a><a href="climate.html">Microclimate</a><a href="pumping.html">Pumping</a><a href="analytics.html">Analytics</a><a href="compare.html">Compare</a><a href="about.html">About & Contact</a><a class="cta-btn" href="about.html#contact">Free barn audit</a></nav>
+</div></header>
+
+<section><div class="wrap">
+<div class="kicker">Comparison</div>
+<h2>OPERATOR vs. typical imported control systems</h2>
+<p class="lead">A summary of the manufacturer's published comparison against DeBoer, SKOV, Siemens and
+comparable platforms, on the parameters that decide daily operation.</p>
+<table>
+<tr><th style="width:34%">Parameter</th><th style="width:33%">OPERATOR</th><th>Typical imported systems</th></tr>
+<tr><td>Recovery after power failure</td><td><b>Resumes the cycle in ~200 ms</b>, position saved in FRAM</td><td>Program reboot; manual restart (e.g., DeBoer)</td></tr>
+<tr><td>Per-circuit diagnostics</td><td><b>Every DO/DI circuit</b> — break, short, overheating; 600+ events</td><td>Basic or none</td></tr>
+<tr><td>Data access</td><td><b>Open REST API</b> to herd software, SCADA and state platforms</td><td>Closed proprietary protocols</td></tr>
+<tr><td>Barn algorithms built in</td><td><b>Pre-installed:</b> scrapers, climate, pumping</td><td>Must be developed per project</td></tr>
+<tr><td>Works with existing equipment</td><td><b>Yes</b> — re-controls DeBoer scrapers, SKOV fans, feeds GEA/DeLaval data</td><td>Own ecosystem only</td></tr>
+<tr><td>Non-volatile cycle memory</td><td><b>FRAM</b>, unlimited write cycles</td><td>Retain variables only, or none</td></tr>
+<tr><td>Documentation</td><td><b>Full package:</b> schematics, specs, operating manuals</td><td>Varies by integrator</td></tr>
+</table>
+<p class="note">Based on the manufacturer's published comparison (30+ parameters). Full comparison document available on request.</p>
+<a class="btn" href="about.html#contact">Get the full comparison</a>
+</div></section>
+
+<footer><div class="wrap">
+<b>OPERATOR USA</b> — US representation of the Operato automation platform.<br>
+US Representative: Muhammad Hojizoda · +1 954 716 1616 · Manufacturer: operato.ru<br>
+<span style="color:#8fa08f">Scrapers · Microclimate · Pumping · Analytics — one open platform for dairy barns.</span>
+</div></footer>
+</body></html>
